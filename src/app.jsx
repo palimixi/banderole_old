@@ -51,12 +51,17 @@ function App() {
     setHasInteracted(true);
   
 
-    fetch(`https://localhost:3001/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
-  .then(response => response.blob())
-  .then(blob => {
-    const url = URL.createObjectURL(blob);
-    setImageUrl(url);  // Use the setImageUrl function to update the state.
-  });
+    fetch(`https://banderole-lxzs1xpv7-palimixis-projects.vercel.app/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+.then(response => response.blob())
+.then(blob => {
+  console.log("Taille du blob: ", blob.size);  // Ajout du log pour vérifier la taille
+  const url = URL.createObjectURL(blob);
+  console.log("Image URL:", imageUrl);
+  setImageUrl(url);
+  console.log("Image URL:", url);
+
+});
+
 
 
 

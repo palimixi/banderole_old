@@ -39,24 +39,12 @@ app.get("/generate-banner", async (req, res) => {
   const font = req.query.font || "Arial";
   const fontSize = req.query.fontSize || "18";
 
-  // Gébère le GIF
+  // Génère le GIF
   const gifBuffer = createBannerGif(text, textColor, bgColor, font);
 
-  const uploadParams = {
-    Bucket: "banderolebucket",
-    Key: `banners/${Date.now()}.gif`, // un nom de fichier unique
-    Body: gifBuffer,
-    ContentType: "image/gif",
-  };
-
   // Retourne le GIF comme réponse
-  try {
-    const data = await s3.upload(uploadParams).promise();
-    res.json({ imageUrl: data.Location }); // renvoie l'URL du GIF
-  } catch (error) {
-    console.error("Error uploading to S3:", error);
-    res.status(500).send("Internal Server Error");
-  }
+  res.set("Content-Type", "image/gif");
+  res.send(gifBuffer);
 });
 
 process.on("unhandledRejection", (reason, p) => {
@@ -102,6 +90,9 @@ const createBannerGif = (text, textColor, bgColor, font) => {
 
   encoder.finish();
   const gifBuffer = encoder.out.getData();
+
+  console.log("GIF Buffer:", gifBuffer);
+
   return gifBuffer;
 };
 
