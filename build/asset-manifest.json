@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/palimixi/banderole/static/css/main.2fdcf638.css",
+    "main.js": "/palimixi/banderole/static/js/main.1c651112.js",
+    "index.html": "/palimixi/banderole/index.html",
+    "main.2fdcf638.css.map": "/palimixi/banderole/static/css/main.2fdcf638.css.map",
+    "main.1c651112.js.map": "/palimixi/banderole/static/js/main.1c651112.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2fdcf638.css",
+    "static/js/main.1c651112.js"
+  ]
+}

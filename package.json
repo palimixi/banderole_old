@@ -1,17 +1,22 @@
 {
   "name": "banderole",
   "version": "1.0.0",
+  "homepage": "https://github.com/palimixi/banderole",
   "main": "createBanner.js",
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"nodemon createBanner.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon createBanner.js"
+    "server": "nodemon createBanner.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@uiw/react-color-colorful": "^1.4.3",
+    "aws-sdk": "^2.1482.0",
     "canvas": "^2.11.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
@@ -36,6 +41,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "concurrently": "^8.2.2",
+    "gh-pages": "^6.0.0",
     "nodemon": "^3.0.1"
   }
 }

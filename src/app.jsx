@@ -51,7 +51,7 @@ function App() {
     setHasInteracted(true);
   
 
-    fetch(`http://localhost:3001/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+    fetch(`https://localhost:3001/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
   .then(response => response.blob())
   .then(blob => {
     const url = URL.createObjectURL(blob);
@@ -91,12 +91,12 @@ function App() {
         <label>
         Size
         <select className="font-size-picker" value={fontSize} onChange={e => { setFontSize(e.target.value); updateBanner(e); }}>
-            <option value="16">14</option>
-            <option value="20">16</option>
-            <option value="18">18</option>
-            <option value="20">20</option>
-            <option value="20">22</option>
-            </select>
+          <option value="14">14</option>
+          <option value="16">16</option>
+          <option value="18">18</option>
+          <option value="20">20</option>
+          <option value="22">22</option>
+        </select>
             </label>
             <label>
                 Font
