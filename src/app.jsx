@@ -51,7 +51,9 @@ function App() {
     setHasInteracted(true);
   
 
-    fetch(`https://banderole-lxzs1xpv7-palimixis-projects.vercel.app/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+    fetch(`https://banderole.vercel.app/api/createBanner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+    // fetch(`http://localhost:3001/api/createBanner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+ // for local only
 .then(response => response.blob())
 .then(blob => {
   console.log("Taille du blob: ", blob.size);  // Ajout du log pour vérifier la taille

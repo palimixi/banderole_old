@@ -26,10 +26,6 @@ app.use(
   })
 );
 
-app.listen(3001, () => {
-  console.log("Server listening on port 3001");
-});
-
 app.get("/generate-banner", async (req, res) => {
   // Valeurs par défaut
 
@@ -40,7 +36,7 @@ app.get("/generate-banner", async (req, res) => {
   const fontSize = req.query.fontSize || "18";
 
   // Génère le GIF
-  const gifBuffer = createBannerGif(text, textColor, bgColor, font);
+  const gifBuffer = createBannerGif(text, textColor, bgColor, font, fontSize);
 
   // Retourne le GIF comme réponse
   res.set("Content-Type", "image/gif");
@@ -58,7 +54,7 @@ process.on("uncaughtException", function (err) {
 const { createCanvas } = require("canvas");
 const GIFEncoder = require("gifencoder");
 
-const createBannerGif = (text, textColor, bgColor, font) => {
+const createBannerGif = (text, textColor, bgColor, font, fontSize) => {
   const width = 400;
   const height = 50;
 
