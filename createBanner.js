@@ -5,17 +5,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-// Configuration SDK AWS
-
-const AWS = require("aws-sdk");
-
-const AWSConfig = require("./config.json");
-const s3 = new AWS.S3({
-  accessKeyId: AWSConfig.AWS_ACCESS_KEY,
-  secretAccessKey: AWSConfig.AWS_SECRET_KEY,
-  region: AWSConfig.AWS_REGION,
-});
-
 // Middlewares
 app.use(express.static(path.join(__dirname, "public")));
 
