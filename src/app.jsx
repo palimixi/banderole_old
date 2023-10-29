@@ -51,8 +51,8 @@ function App() {
     setHasInteracted(true);
   
 
-    fetch(`https://banderole.vercel.app/api/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
-    // fetch(`http://localhost:3001/api/createBanner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+    fetch(`https://banderole.vercel.app/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+    // fetch(`http://localhost:3001/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
  // for local only
 .then(response => response.blob())
 .then(blob => {
@@ -62,9 +62,10 @@ function App() {
   }
   console.log("Taille du blob: ", blob.size);  // Ajout du log pour vérifier la taille
   const url = URL.createObjectURL(blob);
-  console.log("Image URL:", imageUrl);
+  
   setImageUrl(url);
   console.log("Image URL:", url);
+  console.log("Image URL:", imageUrl);
 
 });
 
