@@ -1,7 +1,7 @@
 {
   "name": "banderole",
   "version": "1.0.0",
-  "homepage": "https://github.com/palimixi/banderole",
+  "homepage": ".",
   "main": "createBanner.js",
   "scripts": {
     "start": "concurrently \"react-scripts start\" \"nodemon createBanner.js\"",

@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "package.json", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "^/static/(.*)", "headers": { "cache-control": "s-maxage=0" } },
+      { "src": "/(.*)", "dest": "/" }
+    ]
+  }
+  
