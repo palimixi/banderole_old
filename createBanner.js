@@ -76,6 +76,9 @@ const createBannerGif = (text, textColor, bgColor, font, fontSize) => {
   encoder.finish();
   const gifBuffer = encoder.out.getData();
 
+  const fs = require("fs");
+  fs.writeFileSync("test.gif", encoder.out.getData());
+
   if (!gifBuffer || gifBuffer.length === 0) {
     console.log("GIF Buffer is empty");
   }
