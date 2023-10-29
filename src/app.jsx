@@ -51,11 +51,15 @@ function App() {
     setHasInteracted(true);
   
 
-    fetch(`https://banderole.vercel.app/api/createBanner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
+    fetch(`https://banderole.vercel.app/api/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
     // fetch(`http://localhost:3001/api/createBanner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
  // for local only
 .then(response => response.blob())
 .then(blob => {
+  if (blob.size === 0) {
+    console.log("Empty blob received");
+    return;
+  }
   console.log("Taille du blob: ", blob.size);  // Ajout du log pour vérifier la taille
   const url = URL.createObjectURL(blob);
   console.log("Image URL:", imageUrl);
