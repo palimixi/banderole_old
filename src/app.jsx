@@ -17,9 +17,6 @@ function App() {
     updateBanner();
   }, []); 
 
-
-
-
   function updateBanner(e) {
     const text = document.querySelector('.custom-input').value;
     let selectedTextColor = e && e.target.className === 'text-color-picker' ? e.target.value : textColor;
@@ -39,10 +36,10 @@ function App() {
         case 'bg-color-picker':
           selectedBgColor = e.target.value;
           break;
-        case 'font-size-picker': // Note: Add this class to your font size select for consistency
+        case 'font-size-picker':
           selectedFontSize = e.target.value;
           break;
-        case 'font-picker': // Note: Add this class to your font select for consistency
+        case 'font-picker':
           selectedFont = e.target.value;
           break;
       }
@@ -54,24 +51,22 @@ function App() {
      fetch(`https://banderole.vercel.app/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
     // fetch(`http://localhost:3001/generate-banner?text=${text}&textColor=${strippedTextColor}&bgColor=${strippedBgColor}&font=${selectedFont}&fontSize=${selectedFontSize}`)
  // for local only
+
+
 .then(response => response.blob())
 .then(blob => {
-  if (blob.size === 0) {
-    console.log("Empty blob received");
-    return;
-  }
+
+  const blobUrl = URL.createObjectURL(blob); //test
+   const img = document.createElement('img');//test
+   img.src = blobUrl;//test
+   document.body.appendChild(img); //test
+
   console.log("Taille du blob: ", blob.size);  // Ajout du log pour vérifier la taille
   const url = URL.createObjectURL(blob);
   
   setImageUrl(url);
-  console.log("Image URL:", url);
   console.log("Image URL:", imageUrl);
-
-});
-
-
-
-
+  });
 
   }
 
@@ -129,22 +124,15 @@ function App() {
                     </label>
                     
                     <a href={imageUrl} download="banner.gif" className={`download-btn ${!hasInteracted ? 'disabled-btn' : ''}`}>Download</a>
-
-
       </div>
-
       <div className="preview">
-      <SvgPartie1 />
-
+        <SvgPartie1 />
         <img id="banner-image" src={imageUrl} alt="Generated Banner" />
-
         <SvgPartie2 />
-
-
       </div>
     </div>
     <div className="footer">
-        <p>Created by Nina for <a href="https://www.bote.agency/" target="_blank">Bote.agency</a></p>
+      <p>Created by Nina for <a href="https://www.bote.agency/" target="_blank">Bote.agency</a></p>
     </div>
     </div>
   );

@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   cors({
-    origin: "https://banderole.vercel.app/", // ou remplacez "*" par votre domaine frontend si vous voulez le restreindre
+    origin: "*", // ou remplacez "*" par votre domaine frontend si vous voulez le restreindre
     methods: "GET",
     allowedHeaders: ["Content-Type", "Authorization"],
   })
