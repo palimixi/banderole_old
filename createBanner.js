@@ -89,6 +89,7 @@ const createBannerGif = (text, textColor, bgColor, font, fontSize) => {
   }
 
   console.log("GIF Buffer:", gifBuffer);
+  res.setHeader("Content-Type", "image/gif");
 
   return gifBuffer;
 };
