@@ -91,15 +91,15 @@ function App() {
         <h2>Customize it!</h2>
         <input type="text" className="custom-input" placeholder="type your text here"  onChange={updateBanner}/>
         <label>
-          Text color
-          <input type="color" className="text-color-picker" value={textColor} onChange={e => {setTextColor(e.target.value); updateBanner(e); }} />
-        </label>
-        <label>
           Background color
           <input type="color" className="bg-color-picker" value={backgroundColor} onChange={e => { 
             setBackgroundColor(e.target.value); 
             updateBanner(e); 
             }} />
+        </label>
+        <label>
+          Text color
+          <input type="color" className="text-color-picker" value={textColor} onChange={e => {setTextColor(e.target.value); updateBanner(e); }} />
         </label>
         <label>
         Size

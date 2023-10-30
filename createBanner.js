@@ -8,6 +8,11 @@ const cors = require("cors");
 // Middlewares
 app.use(express.static(path.join(__dirname, "public")));
 
+// For local only
+//  app.listen(3001, () => {
+//  console.log("Server running on http://localhost:3001");
+//  });
+
 app.use(
   cors({
     origin: "*", // ou remplacez "*" par votre domaine frontend si vous voulez le restreindre
