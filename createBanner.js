@@ -9,9 +9,9 @@ const cors = require("cors");
 app.use(express.static(path.join(__dirname, "public")));
 
 // For local only
-// app.listen(3001, () => {
-// console.log("Server running on http://localhost:3001");
-// });
+app.listen(3001, () => {
+  console.log("Server running on http://localhost:3001");
+});
 
 app.use(
   cors({
