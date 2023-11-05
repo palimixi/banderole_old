@@ -3,14 +3,15 @@
 const path = require("path");
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 // Middlewares
 app.use(express.static(path.join(__dirname, "public")));
 
 // For local only
-// app.listen(3001, () => {
-//  console.log("Server running on http://localhost:3001");
-// });
+app.listen(3001, () => {
+  console.log("Server running on http://localhost:3001");
+});
 
 app.use(
   cors({
@@ -33,7 +34,7 @@ app.get("/generate-banner", async (req, res) => {
   const gifBuffer = createBannerGif(text, textColor, bgColor, font, fontSize);
 
   // Retourne le GIF comme réponse
-  // res.set("Content-Type", "image/gif");
+  res.set("Content-Type", "image/gif");
   res.send(gifBuffer);
 });
 
